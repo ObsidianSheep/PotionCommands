@@ -1,0 +1,28 @@
+#Set the filler material of the gui
+filler: RED_STAINED_GLASS_PANE
+#Set the duration and strength of each potion
+#The duration of each potion is in seconds
+strength:
+  strength: 2
+  duration: 300
+speed:
+  strength: 2
+  duration: 300
+fireRes:
+  strength: 1
+  duration: 300
+haste:
+  strength: 2
+  duration: 300
+nightVision:
+  strength: 1
+  duration: 300
+waterBreathing:
+  strength: 1
+  duration: 300
+regen:
+  strength: 2
+  duration: 300
+jumpBoost:
+  strength: 2
+  duration: 300

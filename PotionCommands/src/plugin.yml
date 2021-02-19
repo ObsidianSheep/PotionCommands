@@ -1,0 +1,37 @@
+main: me.obby.PotionCommands.Main
+name: PotionCommands
+version: 1.0
+author: ObsidianSheep
+api-version: 1.16
+
+commands:
+  Potion:
+    permission: potioncommands.use
+  Strength:
+    permission: potioncommands.use.strength
+  Speed:
+    permission: potioncommands.use.speed
+  FireRes:
+    aliases: fr
+    permission: potioncommands.use.fireRes
+  Haste:
+    permission: potioncommands.use.haste
+  NightVision:
+    alaises: nv
+    permission: potioncommands.use.nightVision
+  WaterBreathing:
+    alaises: wb
+    permission: potioncommands.use.waterBreathing
+  Regen:
+    permission: potioncommands.use.regeneration
+  JumpBoost:
+    alaises: jb
+    permission: potioncommands.use.jumpBoost
+    
+permissions:
+  potioncommands.use:
+    description: Gives acess to the potion menu
+    default: true
+  potioncommands.reload:
+    description: Reloads the plugin config file
+    default: op
