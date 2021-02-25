@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.obby.PotionCommands.Bstats.MetricsBase;
 import me.obby.PotionCommands.Files.ConfigManager;
 import me.obby.PotionCommands.Listeners.OnClick;
 
@@ -30,6 +31,10 @@ public class Main extends JavaPlugin implements Listener{
 		this.getCommand("JumpBoost").setExecutor(new JumpBoost());
 		
 		Main.config = new ConfigManager(this);
+		
+        int pluginId = 10467; // <-- Replace with the id of your plugin!
+        Bstats metrics = new Bstats(this, pluginId);
+
 		
 	}
 	

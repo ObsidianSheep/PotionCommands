@@ -1,6 +1,6 @@
 main: me.obby.PotionCommands.Main
 name: PotionCommands
-version: 1.0
+version: 1.1
 author: ObsidianSheep
 api-version: 1.16
 

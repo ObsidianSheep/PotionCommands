@@ -38,7 +38,7 @@ public class Strength implements CommandExecutor {
 	}
 	
 	public void potion(Player player) {
-		String potionName = "strenght";
+		String potionName = "strength";
 		String potionNameChat = "Strength";
 		int duration = Main.config.getconfig().getConfigurationSection(potionName).getInt("duration") * 20;
 		int power = Main.config.getconfig().getConfigurationSection(potionName).getInt("strength") - 1 ;
