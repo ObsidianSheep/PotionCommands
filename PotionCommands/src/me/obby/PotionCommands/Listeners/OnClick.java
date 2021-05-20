@@ -1,6 +1,5 @@
 package me.obby.PotionCommands.Listeners;
 
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,9 +21,30 @@ public class OnClick implements Listener {
 		WaterBreathing waterBreathing = new WaterBreathing();
 		Regen regen = new Regen();
 		JumpBoost jumpBoost = new JumpBoost();
+		
+		String guiName = Main.config.getconfig().getString("guiName");
+		
+		int potion1loc = Main.config.getconfig().getConfigurationSection("strengthgui").getInt("location");
+		int potion2loc = Main.config.getconfig().getConfigurationSection("speedgui").getInt("location");
+		int potion3loc = Main.config.getconfig().getConfigurationSection("fireResgui").getInt("location");
+		int potion4loc = Main.config.getconfig().getConfigurationSection("hastegui").getInt("location");
+		int potion5loc = Main.config.getconfig().getConfigurationSection("nightVisiongui").getInt("location");
+		int potion6loc = Main.config.getconfig().getConfigurationSection("waterBreathinggui").getInt("location");
+		int potion7loc = Main.config.getconfig().getConfigurationSection("regengui").getInt("location");
+		int potion8loc = Main.config.getconfig().getConfigurationSection("jumpBoostgui").getInt("location");
+		
+		Boolean potion1Active = Main.config.getconfig().getConfigurationSection("strengthgui").getBoolean("active");
+		Boolean potion2Active = Main.config.getconfig().getConfigurationSection("speedgui").getBoolean("active");
+		Boolean potion3Active = Main.config.getconfig().getConfigurationSection("fireResgui").getBoolean("active");
+		Boolean potion4Active = Main.config.getconfig().getConfigurationSection("hastegui").getBoolean("active");
+		Boolean potion5Active = Main.config.getconfig().getConfigurationSection("nightVisiongui").getBoolean("active");
+		Boolean potion6Active = Main.config.getconfig().getConfigurationSection("waterBreathinggui").getBoolean("active");
+		Boolean potion7Active = Main.config.getconfig().getConfigurationSection("regengui").getBoolean("active");
+		Boolean potion8Active = Main.config.getconfig().getConfigurationSection("jumpBoostgui").getBoolean("active");
+
 
 		// Checks that the player is in the correct inventory
-		if (!event.getView().getTitle().contains("Potions")) {
+		if (!event.getView().getTitle().contains(guiName)) {
 			return;
 		}
 		// If player clicks on a filler item nothing happens
@@ -47,107 +67,92 @@ public class OnClick implements Listener {
 		// Start of potions
 
 		// Strength
-		if (event.getSlot() == 11) {
-			if (!player.hasPermission("potioncommands.use.strength")) {
-				player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this potion");
+		if (!potion1Active == false) {	
+			if (event.getSlot() == potion1loc) {
+				if (!player.hasPermission("potioncommands.use.strength")) {
+					return;
+				}
+				strength.potion(player);
 				player.closeInventory();
 				player.updateInventory();
-				return;
-			}
-			strength.potion(player);
-			player.closeInventory();
-			player.updateInventory();
+			} 
 		}
-
-		// speed
-		if (event.getSlot() == 12) {
-			if (!player.hasPermission("potioncommands.use.speed")) {
-				player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this potion");
+		if (!potion2Active == false) {
+			// speed
+			if (event.getSlot() == potion2loc) {
+				if (!player.hasPermission("potioncommands.use.speed")) {
+					return;
+				}
+				speed.potion(player);
 				player.closeInventory();
 				player.updateInventory();
-				return;
-			}
-			speed.potion(player);
-			player.closeInventory();
-			player.updateInventory();
+			} 
 		}
-
-		// Fire Res
-		if (event.getSlot() == 13) {
-			if (!player.hasPermission("potioncommands.use.fireRes")) {
-				player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this potion");
+		if (!potion3Active == false) {
+			// Fire Res
+			if (event.getSlot() == potion3loc) {
+				if (!player.hasPermission("potioncommands.use.fireRes")) {
+					return;
+				}
+				fireRes.potion(player);
 				player.closeInventory();
 				player.updateInventory();
-				return;
-			}
-			fireRes.potion(player);
-			player.closeInventory();
-			player.updateInventory();
+			} 
 		}
-		
-		// Haste
-		if (event.getSlot() == 14) {
-			if (!player.hasPermission("potioncommands.use.haste")) {
-				player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this potion");
+		if (!potion4Active == false) {
+			// Haste
+			if (event.getSlot() == potion4loc) {
+				if (!player.hasPermission("potioncommands.use.haste")) {
+					return;
+				}
+				haste.potion(player);
 				player.closeInventory();
 				player.updateInventory();
-				return;
-			}
-			haste.potion(player);
-			player.closeInventory();
-			player.updateInventory();
+			} 
 		}
-		
-		// Night Vision
-		if (event.getSlot() == 15) {
-			if (!player.hasPermission("potioncommands.use.nightVision")) {
-				player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this potion");
+		if (!potion5Active == false) {
+			// Night Vision
+			if (event.getSlot() == potion5loc) {
+				if (!player.hasPermission("potioncommands.use.nightVision")) {
+					return;
+				}
+				nightVision.potion(player);
 				player.closeInventory();
 				player.updateInventory();
-				return;
-			}
-			nightVision.potion(player);
-			player.closeInventory();
-			player.updateInventory();
+			} 
 		}
-		
-		// Water Breathing
-		if (event.getSlot() == 21) {
-			if (!player.hasPermission("potioncommands.use.waterBreathing")) {
-				player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this potion");
+		if (!potion6Active == false) {
+			// Water Breathing
+			if (event.getSlot() == potion6loc) {
+				if (!player.hasPermission("potioncommands.use.waterBreathing")) {
+					return;
+				}
+				waterBreathing.potion(player);
 				player.closeInventory();
 				player.updateInventory();
-				return;
-			}
-			waterBreathing.potion(player);
-			player.closeInventory();
-			player.updateInventory();
+			} 
 		}
-		
-		// Regeneration
-		if (event.getSlot() == 22) {
-			if (!player.hasPermission("potioncommands.use.regeneration")) {
-				player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this potion");
+		if (!potion7Active == false) {
+			// Regeneration
+			if (event.getSlot() == potion7loc) {
+				if (!player.hasPermission("potioncommands.use.regeneration")) {
+					return;
+				}
+				regen.potion(player);
 				player.closeInventory();
 				player.updateInventory();
-				return;
-			}
-			regen.potion(player);
-			player.closeInventory();
-			player.updateInventory();
+			} 
 		}
-		
-		// Jump Boost
-		if (event.getSlot() == 23) {
-			if (!player.hasPermission("potioncommands.use.jumpBoost")) {
-				player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this potion");
+		if (!potion8Active == false) {
+			// Jump Boost
+			if (event.getSlot() == potion8loc) {
+				if (!player.hasPermission("potioncommands.use.jumpBoost")) {
+					return;
+				}
+				jumpBoost.potion(player);
 				player.closeInventory();
 				player.updateInventory();
-				return;
-			}
-			jumpBoost.potion(player);
-			player.closeInventory();
-			player.updateInventory();
+			} 
 		}
 		
 	}

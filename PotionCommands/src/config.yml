@@ -1,7 +1,6 @@
-#Set the filler material of the gui
-filler: RED_STAINED_GLASS_PANE
-#Set the duration and strength of each potion
-#The duration of each potion is in seconds
+# Set the duration and strength of each potion
+# The duration of each potion is in seconds
+# Setting the duration to 100000 will make the potion infinite
 strength:
   strength: 2
   duration: 300
@@ -26,3 +25,63 @@ regen:
 jumpBoost:
   strength: 2
   duration: 300
+# Gui configuration:
+# Here you can change the location of the potions, their lore, lore color and title color as well as deactivate the effect entirely!
+# To remove the potion from the gui set the "active" setting to false (This will not effect the Potion's respective command)
+# Please use staandard Minecraft color codes for all color options (you can add text effets as well such as bold, italic, etc..)
+# A visual color code list can be found here:
+# https://minecraft.fandom.com/wiki/File:Minecraft_Formatting.gif
+
+# Set the title and title color of the potion gui
+guiName: "Potions"
+# Please place color and format codes here to prevent issues with the gui buttons
+guiNameFormat: "&c"
+
+# Change the size of the gui (must be in multiples of 9)
+# All potions must be rendered inside of the gui to avoid an error
+guiSize: 36
+
+# Customize each potion's appearance
+strengthgui:
+  location: 11
+  lore: "&7&oActivate Strength!"
+  titlecolor: "&4"
+  active: true
+speedgui:
+  location: 12
+  lore: "&7&oActivate Speed!"
+  titlecolor: "&4"
+  active: true
+fireResgui:
+  location: 13
+  lore: "&7&oActivate Fire Resistance!"
+  titlecolor: "&4"
+  active: true
+hastegui:
+  location: 14
+  lore: "&7&oActivate Haste!"
+  titlecolor: "&4"
+  active: true
+nightVisiongui:
+  location: 15
+  lore: "&7&oActivate Night Vision!"
+  titlecolor: "&4"
+  active: true
+waterBreathinggui:
+  location: 21
+  lore: "&7&oActivate Water Breathing!"
+  titlecolor: "&4"
+  active: true
+regengui:
+  location: 22
+  lore: "&7&oActivate Regeneration!"
+  titlecolor: "&4"
+  active: true
+jumpBoostgui:
+  location: 23
+  lore: "&7&oActivate Strength!"
+  titlecolor: "&4"
+  active: true
+
+# Set the filler material of the gui, this can be any item in Minecraft
+filler: RED_STAINED_GLASS_PANE
